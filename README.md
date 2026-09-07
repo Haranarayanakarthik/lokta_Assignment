@@ -1,16 +1,73 @@
-# React + Vite
+# Borrower Copilot
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> A borrower-first financial self-assessment tool that helps Indian borrowers understand how much they can safely borrow, what rate may be fair for their profile, and what EMI they should be comfortable agreeing to before approaching a lender.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Overview
 
-## React Compiler
+Borrower Copilot is a frontend-only personal lending assistant designed around one simple idea:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+**A lender may tell you how much they are willing to give you. Borrower Copilot helps you understand how much you should actually take.**
 
-## Expanding the ESLint configuration
+Before approaching a lender, a borrower often does not know:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Whether they should borrow at all
+- How much they can safely afford
+- How much a lender might potentially sanction
+- Whether an offered interest rate is reasonable
+- What EMI they should be comfortable agreeing to
+- How a change in income could affect repayment
+
+Borrower Copilot addresses these questions through a transparent, rule-based assessment.
+
+The application does not make a lending decision or guarantee loan approval. Instead, it gives the borrower a structured view of their financial position and provides a **Negotiation Card** that can be used when discussing a loan with a lender.
+
+---
+
+# Key Questions
+
+The application is designed around four questions:
+
+### O1 — Should I borrow?
+
+The application returns one of three outcomes:
+
+- **BORROW**
+- **BORROW LESS**
+- **DON'T BORROW**
+
+The goal is not to make every borrower eligible.
+
+If the requested loan creates excessive financial pressure, the application should be able to recommend borrowing less or not borrowing at all.
+
+---
+
+### O2 — How much can I borrow?
+
+The application separates affordability into different levels.
+
+#### Safer amount
+
+The amount the borrower can carry while maintaining more financial room.
+
+#### Stretch amount
+
+A higher amount that may technically be manageable but leaves less room for unexpected expenses or income changes.
+
+#### Requested amount
+
+The amount the borrower actually wants.
+
+The application compares these values instead of blindly displaying one "maximum loan amount."
+
+For example:
+
+```text
+Requested amount       ₹8,00,000
+
+Safer amount           ₹6,50,000
+
+Stretch amount         ₹7,50,000
+
+Decision               Borrow Less
