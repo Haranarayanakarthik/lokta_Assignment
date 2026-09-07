@@ -697,23 +697,3 @@ The core value of the product is the transparent borrower-side decision system.
 Disclaimer
 
 Borrower Copilot is an educational decision-support prototype, not a lender, financial advisor, credit bureau or loan approval system. Its calculations are estimates based on stated assumptions and user-provided information. Actual lender terms and eligibility may differ.
-
-
-### One thing I strongly recommend
-
-Don't stop at `README.md`. The assignment specifically says **`RULES.md` will be read as carefully as the code**.
-
-So our next deliverable should be `RULES.md` with a table like:
-
-| What | Value | Why | Source |
-|---|---:|---|---|
-| Safe FOIR | 40% | Conservative affordability boundary | My judgement |
-| Stretch FOIR | 50% | Shows higher-risk affordability boundary | My judgement |
-| Safe buffer | 15% | Preserve monthly financial room | My judgement |
-| Stretch buffer | 5% | Represents reduced financial room | My judgement |
-| Stress income reduction | 20% | Simple resilience test | My judgement |
-| Assessment tenure | 4 years | Initial comparison assumption | My judgement |
-| Unknown credit score | Unknown | Never treat missing data as zero | Product rule |
-| Calculation rate | Upper end of fair band | Avoid overstating affordability | My judgement |
-
-**That document is where we should now put the actual India/RBI-backed assumptions and distinguish them from our own product judgement.** That will make your assignment much easier to defend when they change a rule during the 60-minute follow-up.
