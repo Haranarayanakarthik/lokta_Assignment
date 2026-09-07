@@ -338,53 +338,63 @@ function App() {
             </div>
           </div>
 
-          {/* EMI + RATE */}
+          {/* CALCULATION DETAILS */}
 
-          <div className="grid md:grid-cols-2 gap-4 mb-6">
-            <div className="rounded-2xl bg-slate-900 border border-slate-800 p-6">
-              <p className="text-sm text-slate-400">EMI ceiling</p>
-
-              <p className="text-3xl font-bold mt-2">
-                ₹{Math.round(finalSafeEmi).toLocaleString("en-IN")}
+          <div className="rounded-2xl bg-slate-900 border border-slate-800 p-6 mb-6">
+            <div className="mb-5">
+              <p className="text-sm text-slate-400">
+                How we calculated your position
               </p>
 
-              <p className="text-sm text-slate-400 mt-3">
-                We keep your total EMI around 40% of income and also consider
-                your reported expenses.
+              <p className="text-lg font-semibold text-white mt-1">
+                Key assumptions used for this assessment
               </p>
             </div>
 
-            <div className="rounded-2xl bg-slate-900 border border-slate-800 p-6">
-              <p className="text-sm text-slate-400">Fair interest rate</p>
+            <div className="grid md:grid-cols-3 gap-4">
+              {/* TENURE */}
 
-              <p className="text-3xl font-bold mt-2">
-                {rateBand.low}% – {rateBand.high}%
-              </p>
+              <div className="rounded-xl bg-slate-800/70 border border-slate-700 p-5">
+                <p className="text-sm text-slate-400">Assessment tenure</p>
 
-              <p className="text-sm text-slate-400 mt-3">
-                Indicative range for this prototype. Final pricing depends on
-                the lender and product.
-              </p>
+                <p className="text-2xl font-bold text-white mt-2">
+                  {assessmentTenure} years
+                </p>
+
+                <p className="text-xs text-slate-500 mt-2">
+                  Used to estimate the loan amount from your EMI capacity.
+                </p>
+              </div>
+
+              {/* RATE */}
+
+              <div className="rounded-xl bg-slate-800/70 border border-slate-700 p-5">
+                <p className="text-sm text-slate-400">Calculation rate</p>
+
+                <p className="text-2xl font-bold text-white mt-2">
+                  {calculationRate}%
+                </p>
+
+                <p className="text-xs text-slate-500 mt-2">
+                  We use the higher end of your estimated fair-rate band for a
+                  conservative calculation.
+                </p>
+              </div>
+
+              {/* FOIR */}
+
+              <div className="rounded-xl bg-slate-800/70 border border-slate-700 p-5">
+                <p className="text-sm text-slate-400">Safe FOIR limit</p>
+
+                <p className="text-2xl font-bold text-white mt-2">40%</p>
+
+                <p className="text-xs text-slate-500 mt-2">
+                  Keeps total monthly EMIs within a conservative share of
+                  income.
+                </p>
+              </div>
             </div>
           </div>
-
-          <div className="rounded-2xl bg-slate-900 border border-slate-800 p-6">
-            <div className="flex justify-between">
-              <span>Assessment tenure</span>
-              <span className="text-white">{assessmentTenure} years</span>
-            </div>
-
-            <div className="flex justify-between">
-              <span>Calculation rate</span>
-              <span className="text-white">{calculationRate}%</span>
-            </div>
-
-            <div className="flex justify-between">
-              <span>Safe FOIR limit</span>
-              <span className="text-white">40%</span>
-            </div>
-          </div>
-
           {/* STRESS TEST */}
 
           <div className="rounded-2xl bg-slate-900 border border-slate-800 p-6 mb-6">
